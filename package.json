@@ -1,0 +1,72 @@
+{
+  "name": "vue-json-schema-form",
+  "version": "1.0.0",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build:core": "vue-cli-service build --target lib --name index src/core/index.ts --no-clean",
+    "build:plugins": "vue-cli-service build --target lib --name plugins/index src/plugins/index.ts --no-clean",
+    "build:theme": "vue-cli-service build --target lib --name theme-element/index src/theme-element-ui/index.ts --no-clean",
+    "build": "npm run clean && npm run build:core && npm run build:theme",
+    "clean": "rimraf dist",
+    "test:unit": "vue-cli-service test:unit",
+    "test:unit:watch": "vue-cli-service test:unit --watch",
+    "lint": "vue-cli-service lint",
+    "pub": "npm run lint && npm run build && npm version patch && npm publish"
+  },
+  "main": "dist/index.common.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "jsonpointer": "^4.0.1",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.union": "^4.6.0",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.1"
+  },
+  "devDependencies": {
+    "@types/ajv": "^1.0.0",
+    "@types/jest": "^24.0.19",
+    "@types/jsonpointer": "^4.0.0",
+    "@types/lodash": "^4.14.152",
+    "@types/lodash.clonedeep": "^4.5.6",
+    "@types/lodash.union": "^4.6.6",
+    "@types/node": "^13.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-plugin-typescript": "~4.3.0",
+    "@vue/cli-plugin-unit-jest": "~4.3.0",
+    "@vue/cli-service": "~4.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.1",
+    "@vue/test-utils": "1.0.0-beta.31",
+    "ajv": "^6.12.0",
+    "ajv-i18n": "^3.5.0",
+    "babel-eslint": "^10.0.3",
+    "core-js": "^3.6.4",
+    "element-ui": "^2.13.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "typescript": "~3.8.3",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-webpack-bundle-analyzer": "~2.0.0",
+    "vue-json-pretty": "^1.6.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "ajv": "^6.12.0",
+    "ajv-i18n": "^3.5.0",
+    "element-ui": "^2.13.0",
+    "jsonpointer": "^4.0.1",
+    "lodash.union": "^4.6.0",
+    "vue": "^2.6.11"
+  }
+}
