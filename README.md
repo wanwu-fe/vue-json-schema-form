@@ -1,18 +1,18 @@
-# vue-jsonschema-form
+# @zdwh/vue-json-schema-form
 
-[demo 演示](https://wanwu-fe.github.io/vue-jsonschema-form/)
+[demo 演示](https://wanwu-fe.github.io/@zdwh/vue-json-schema-form/)
 
 ### USAGE
 
 ```
-npm i vue-jsonschema-form -S
+npm i @zdwh/vue-json-schema-form -S
 ```
 
 然后
 
 ```js
-import JsonSchemaForm from 'vue-jsonschema-form'
-import JsonSchemaFormThemeElement from 'vue-jsonschema-form/dist/theme-element/index.common.js'
+import JsonSchemaForm from '@zdwh/vue-json-schema-form'
+import JsonSchemaFormThemeElement from '@zdwh/vue-json-schema-form/dist/theme-element/index.common.js'
 
 vue.use(JsonSchemaForm)
 vue.use(JsonSchemaFormThemeElement)
@@ -249,7 +249,7 @@ TODO:
 ### 帮助方法
 
 ```js
-import { ThemeBaseClass, ThemeBaseMixin } from 'vue-jsonschema-form'
+import { ThemeBaseClass, ThemeBaseMixin } from '@zdwh/vue-json-schema-form'
 ```
 
 如果你用`class`开发可以继承前者，或者你可以使用后面的 mixin

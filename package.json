@@ -1,5 +1,5 @@
 {
-  "name": "vue-jsonschema-form",
+  "name": "@zdwh/vue-json-schema-form",
   "version": "1.0.0",
   "private": false,
   "scripts": {
