@@ -19,6 +19,9 @@
   "files": [
     "dist"
   ],
+  "gitHooks": {
+    "pre-commit": "npm run lint"
+  },
   "dependencies": {
     "jsonpointer": "^4.0.1",
     "lodash.clonedeep": "^4.5.0",

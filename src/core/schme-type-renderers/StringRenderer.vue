@@ -7,7 +7,12 @@
       placeholder="请选择"
       v-if="isSelect"
     ></jsf-selection>
-    <component :is="component" v-bind="rendererProps" @input="handleChange" v-else />
+    <component
+      :is="component"
+      v-bind="rendererProps"
+      @input="handleChange"
+      v-else
+    />
   </jsf-form-item>
 </template>
 

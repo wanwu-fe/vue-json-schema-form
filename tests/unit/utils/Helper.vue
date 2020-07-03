@@ -1,5 +1,10 @@
 <template>
-  <json-schema-form :value="value" @input="handleChange" :schema="schema" :ui-schema="uiSchema" />
+  <json-schema-form
+    :value="value"
+    @input="handleChange"
+    :schema="schema"
+    :ui-schema="uiSchema"
+  />
 </template>
 
 <script lang="ts">

@@ -12,7 +12,11 @@
     ></jsf-selection>
   </jsf-form-item>
   <jsf-form-item v-bind="formItemProps" v-else-if="isDateRange">
-    <jsf-date-time-range-picker v-bind="rendererProps" @input="handleChange" :type="dateTimeType"></jsf-date-time-range-picker>
+    <jsf-date-time-range-picker
+      v-bind="rendererProps"
+      @input="handleChange"
+      :type="dateTimeType"
+    ></jsf-date-time-range-picker>
   </jsf-form-item>
   <div v-else-if="isMultiType" v-show="show">
     <jsf-item
