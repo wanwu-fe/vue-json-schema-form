@@ -1,5 +1,7 @@
 # vue-json-schema-form
 
+[demo 演示](https://wanwu-fe.github.io/vue-json-schema-form/)
+
 ### USAGE
 
 ```

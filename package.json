@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:core": "vue-cli-service build --target lib --name index src/core/index.ts --no-clean",
-    "build:plugins": "vue-cli-service build --target lib --name plugins/index src/plugins/index.ts --no-clean",
     "build:theme": "vue-cli-service build --target lib --name theme-element/index src/theme-element-ui/index.ts --no-clean",
+    "build:doc": "TYPE=doc vue-cli-service build",
     "build": "npm run clean && npm run build:core && npm run build:theme",
     "clean": "rimraf dist",
     "test:unit": "vue-cli-service test:unit",
@@ -15,6 +15,7 @@
     "pub": "npm run lint && npm run build && npm version patch && npm publish"
   },
   "main": "dist/index.common.js",
+  "license": "MIT",
   "files": [
     "dist"
   ],
