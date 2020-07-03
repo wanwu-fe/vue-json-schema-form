@@ -1,11 +1,13 @@
 <template>
-  <el-input
-    :value="value || ''"
-    @input="handleChange"
-    :type="type"
-    :placeholder="placeholder"
-    v-bind="additionProps"
-  ></el-input>
+  <form-item v-bind="formItemProps">
+    <el-input
+      :value="value || ''"
+      @input="handleChange"
+      :type="type"
+      :placeholder="placeholder"
+      v-bind="additionProps"
+    ></el-input>
+  </form-item>
 </template>
 
 <script lang="ts">
@@ -13,11 +15,13 @@ import { Component, Prop } from 'vue-property-decorator'
 import { Input as ElInput } from 'element-ui'
 
 import { TextInputBase } from './form-component-props'
+import FormItem from './FormItem.vue'
 
 @Component({
   name: 'JsfTextInput',
   components: {
     ElInput,
+    FormItem,
   },
 })
 export default class JsfTextInput extends TextInputBase {

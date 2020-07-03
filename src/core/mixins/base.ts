@@ -105,6 +105,7 @@ class RendererBaseClass extends CommonBaseClass {
       requiredError: this.requiredError,
       description: this.description,
       vjsf: this.vjsf,
+      isDependenciesKey: this.isDependenciesKey,
       ...this.vjsf.additionProps,
     }
   }

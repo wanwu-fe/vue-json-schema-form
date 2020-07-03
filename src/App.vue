@@ -16,7 +16,6 @@
           :schema="demo.schema"
           v-model="value"
           ref="schemaForm"
-          :plugins="plugins"
           :form-props="formProps"
           @test="handleCustomEvent"
         />
@@ -58,7 +57,6 @@ export default {
       demos,
       value: {},
       demo: demos[0],
-      plugins: [imagePlugin],
       uiSchema: undefined,
     }
   },

@@ -1,18 +1,16 @@
 <template>
-  <jsf-form-item v-bind="formItemProps">
-    <jsf-selection
-      v-bind="rendererProps"
-      @input="handleChange"
-      :options="options"
-      v-if="isSelect"
-    ></jsf-selection>
-    <component
-      :is="component"
-      v-bind="rendererProps"
-      @input="handleChange"
-      v-else
-    ></component>
-  </jsf-form-item>
+  <jsf-selection
+    v-bind="rendererProps"
+    @input="handleChange"
+    :options="options"
+    v-if="isSelect"
+  ></jsf-selection>
+  <component
+    :is="component"
+    v-bind="rendererProps"
+    @input="handleChange"
+    v-else
+  ></component>
 </template>
 
 <script lang="ts">

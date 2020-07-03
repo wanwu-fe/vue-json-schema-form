@@ -1,9 +1,5 @@
 <template>
-  <jsf-form-item v-if="withFormItem" v-bind="formItemProps">
-    <component :is="comp" v-bind="rendererProps" @input="handleChange" />
-  </jsf-form-item>
-  <component :is="comp" v-bind="rendererProps" @input="handleChange" v-else />
-  <!-- <component :is="comp" v-else /> -->
+  <component :is="comp" v-bind="rendererProps" @input="handleChange" />
 </template>
 
 <script lang="ts">
@@ -24,10 +20,6 @@ import { RendererBaseClass } from '../mixins'
 export default class CustomRenderer extends RendererBaseClass {
   get comp() {
     return this.config.component
-  }
-
-  get withFormItem() {
-    return this.config.withFormItem
   }
 
   get config() {

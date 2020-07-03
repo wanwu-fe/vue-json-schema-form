@@ -1,23 +1,21 @@
 <template>
   <!-- <jsf-form-item v-bind="formItemProps"> -->
-  <jsf-form-item v-bind="formItemProps" v-if="isMultiSelection">
-    <jsf-selection
-      v-bind="rendererProps"
-      :multiple-limit="multipleLimit"
-      multiple
-      :value="currentValue"
-      @input="handleChange"
-      :options="options"
-      placeholder="请选择"
-    ></jsf-selection>
-  </jsf-form-item>
-  <jsf-form-item v-bind="formItemProps" v-else-if="isDateRange">
-    <jsf-date-time-range-picker
-      v-bind="rendererProps"
-      @input="handleChange"
-      :type="dateTimeType"
-    ></jsf-date-time-range-picker>
-  </jsf-form-item>
+  <jsf-selection
+    v-bind="rendererProps"
+    :multiple-limit="multipleLimit"
+    multiple
+    :value="currentValue"
+    @input="handleChange"
+    :options="options"
+    placeholder="请选择"
+    v-if="isMultiSelection"
+  ></jsf-selection>
+  <jsf-date-time-range-picker
+    v-else-if="isDateRange"
+    v-bind="rendererProps"
+    @input="handleChange"
+    :type="dateTimeType"
+  ></jsf-date-time-range-picker>
   <div v-else-if="isMultiType" v-show="show">
     <jsf-item
       :schema="item"
@@ -33,7 +31,7 @@
   <div :style="containerStyle" v-else>
     <template v-if="isSingleType">
       <jsf-single-type-array-wrapper
-        :list="currentValue"
+        :list="currentValue || []"
         :title="title"
         :onDelete="handleDelete"
         :onAdd="handleAdd"

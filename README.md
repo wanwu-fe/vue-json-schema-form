@@ -1,6 +1,11 @@
 # @zdwh/vue-json-schema-form
 
-[demo 演示](https://wanwu-fe.github.io/@zdwh/vue-json-schema-form/)
+<p align="center">
+  <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/v/@zdwh/vue-json-schema-form.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/@zdwh/vue-json-schema-form.svg?sanitize=true" alt="License"></a>
+</p>
+
+[demo 演示](https://wanwu-fe.github.io/vue-json-schema-form/)
 
 ### USAGE
 
@@ -233,7 +238,6 @@ TODO:
   JsfDateTimePicker: '日期时间选择'
   JsfDateTimeRangePicker: '日期时间区间选择'
   JsfForm: '表单组件'
-  JsfFormItem: '表单项组件'
   JsfNumberInput: '数字输入'
   JsfSelection: '下拉选择'
   JsfSwitch: 'boolean开关'

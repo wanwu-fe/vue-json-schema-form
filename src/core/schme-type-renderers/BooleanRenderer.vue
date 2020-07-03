@@ -1,7 +1,5 @@
 <template>
-  <jsf-form-item v-bind="formItemProps">
-    <jsf-switch v-bind="rendererProps" @input="handleChange"></jsf-switch>
-  </jsf-form-item>
+  <jsf-switch v-bind="rendererProps" @input="handleChange"></jsf-switch>
 </template>
 
 <script lang="ts">

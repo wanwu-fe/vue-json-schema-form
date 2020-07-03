@@ -1,5 +1,5 @@
 <template>
-  <jsf-form v-bind="finalFormProps">
+  <jsf-form v-bind="finalFormProps" class="vjsf">
     <SchemaItem
       :schema="schema"
       :root-schema="schema"

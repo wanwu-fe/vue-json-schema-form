@@ -1,21 +1,23 @@
 <template>
-  <date-picker
-    v-bind="{ type: this.type, ...$attrs }"
-    @input="handleChange"
-    :start-placeholder="startPlaceholder"
-    :end-placeholder="endPlaceholder"
-    :schema="schema"
-    v-if="!isTimeRange"
-  ></date-picker>
-  <TimePicker
-    v-else
-    :is-range="true"
-    @input="handleChange"
-    :start-placeholder="startPlaceholder"
-    :end-placeholder="endPlaceholder"
-    value-format="timestamp"
-    v-bind="{ ...$attrs, format: 'HH:mm:ss', ...additionProps }"
-  ></TimePicker>
+  <form-item v-bind="formItemProps">
+    <date-picker
+      v-bind="{ type: this.type, ...$attrs }"
+      @input="handleChange"
+      :start-placeholder="startPlaceholder"
+      :end-placeholder="endPlaceholder"
+      :schema="schema"
+      v-if="!isTimeRange"
+    ></date-picker>
+    <TimePicker
+      v-else
+      :is-range="true"
+      @input="handleChange"
+      :start-placeholder="startPlaceholder"
+      :end-placeholder="endPlaceholder"
+      value-format="timestamp"
+      v-bind="{ ...$attrs, format: 'HH:mm:ss', ...additionProps }"
+    ></TimePicker>
+  </form-item>
 </template>
 
 <script lang="ts">
@@ -23,15 +25,18 @@ import Vue from 'vue'
 import { TimePicker } from 'element-ui'
 import { Component, Prop } from 'vue-property-decorator'
 import DatePicker from './base/DatePicker.vue'
+import FormItem from './FormItem.vue'
+import { CommonBase } from './form-component-props'
 
 @Component({
   name: 'JsfDateTimeRangePicker',
   components: {
     DatePicker,
     TimePicker,
+    FormItem,
   },
 })
-export default class JsfDateTimeRangePicker extends Vue {
+export default class JsfDateTimeRangePicker extends CommonBase {
   @Prop() schema: any
   @Prop() type: any
   handleChange(v: any) {
@@ -57,11 +62,13 @@ export default class JsfDateTimeRangePicker extends Vue {
 </script>
 
 <style lang="stylus">
-.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, .el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner {
-  width: 100%;
-}
+.vjsf {
+  .el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, .el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner {
+    width: 100%;
+  }
 
-.el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
-  width: 100%;
+  .el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
+    width: 100%;
+  }
 }
 </style>

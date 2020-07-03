@@ -1,7 +1,5 @@
 <template>
-  <jsf-form-item v-bind="formItemProps">
-    <span>{{ schema.const }}</span>
-  </jsf-form-item>
+  <jsf-constant v-bind="rendererProps" />
 </template>
 
 <script lang="ts">

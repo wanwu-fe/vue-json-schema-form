@@ -1,14 +1,16 @@
 <template>
-  <el-input-number
-    :placeholder="placeholder"
-    :value="value"
-    @change="handleChange"
-    :min="min"
-    :max="max"
-    :precision="precision"
-    v-bind="additionProps"
-    :controls="!!showControls"
-  ></el-input-number>
+  <form-item v-bind="formItemProps">
+    <el-input-number
+      :placeholder="placeholder"
+      :value="value"
+      @change="handleChange"
+      :min="min"
+      :max="max"
+      :precision="precision"
+      v-bind="additionProps"
+      :controls="!!showControls"
+    ></el-input-number>
+  </form-item>
 </template>
 
 <script lang="ts">
@@ -17,11 +19,13 @@ import { Component } from 'vue-property-decorator'
 import { InputNumber as ElInputNumber } from 'element-ui'
 
 import { NumberInputBase } from './form-component-props'
+import FormItem from './FormItem.vue'
 
 @Component({
   name: 'JsfNumberInput',
   components: {
     ElInputNumber,
+    FormItem,
   },
 })
 export default class JsfNumberInput extends NumberInputBase {
@@ -56,11 +60,13 @@ export default class JsfNumberInput extends NumberInputBase {
 </script>
 
 <style lang="stylus">
-.el-input-number {
-  width: 100%;
+.vjsf{
+  .el-input-number {
+    width: 100%;
 
-  .el-input__inner {
-    text-align: left;
+    .el-input__inner {
+      text-align: left;
+    }
   }
 }
 </style>

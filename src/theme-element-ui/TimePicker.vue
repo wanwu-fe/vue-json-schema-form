@@ -1,12 +1,14 @@
 <template>
-  <TimePicker
-    v-bind="{ ...$props, ...$attrs }"
-    :placeholder="placeholder"
-    :value="value"
-    @input="handleChange"
-    :value-format="valueFormat"
-    format="HH:mm:ss"
-  ></TimePicker>
+  <form-item v-bind="formItemProps">
+    <TimePicker
+      v-bind="{ ...$props, ...$attrs }"
+      :placeholder="placeholder"
+      :value="value"
+      @input="handleChange"
+      :value-format="valueFormat"
+      format="HH:mm:ss"
+    ></TimePicker>
+  </form-item>
 </template>
 
 <script lang="ts">
@@ -16,11 +18,13 @@ import { TimePicker } from 'element-ui'
 
 // import { DatePickerBase } from '../form-component-props'
 import { TimePickerBase } from './form-component-props'
+import FormItem from './FormItem.vue'
 
 @Component({
   name: 'JsfTimePicker', //name是class名字
   components: {
     TimePicker,
+    FormItem,
   },
 })
 export default class BaseDatePicker extends TimePickerBase {

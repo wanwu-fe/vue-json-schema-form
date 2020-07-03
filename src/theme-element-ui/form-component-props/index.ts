@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
+function isDependenciesError(schemaPath: string) {
+  return schemaPath.indexOf('/dependencies/') > 0
+}
+
 @Component
-class CommonBase extends Vue {
+export class CommonBase extends Vue {
   @Prop() value: any
   @Prop({ type: Function }) onChange: any
   @Prop({ type: String }) format: any
@@ -13,6 +17,7 @@ class CommonBase extends Vue {
   @Prop({ type: Boolean }) requiredError: any
   @Prop({ type: String }) description: any
   @Prop({ type: Object }) vjsf: any
+  @Prop({ type: Boolean }) isDependenciesKey: any
 
   defaultPlaceholder: string = '请输入'
 
@@ -22,6 +27,28 @@ class CommonBase extends Vue {
 
   get additionProps() {
     return this.vjsf.additionProps || {}
+  }
+
+  get firstMatchedError() {
+    return this.errors.find((e: any) => {
+      const schemaPath = e.schemaPath
+      if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
+        return false
+      }
+      return true
+    })
+  }
+
+  get formItemProps() {
+    return {
+      required: this.required,
+      schema: this.schema,
+      firstMatchedError: this.firstMatchedError,
+      requiredError: this.requiredError,
+      errors: this.errors,
+      label: this.title,
+      description: this.description,
+    }
   }
 }
 
