@@ -27,7 +27,6 @@
     "vue-property-decorator": "^8.4.1"
   },
   "devDependencies": {
-    "@types/ajv": "^1.0.0",
     "@types/jest": "^24.0.19",
     "@types/jsonpointer": "^4.0.0",
     "@types/lodash": "^4.14.152",
