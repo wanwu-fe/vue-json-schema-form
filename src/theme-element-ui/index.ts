@@ -3,7 +3,7 @@ import Vue from 'vue'
 import { Button } from 'element-ui'
 
 import Form from './Form.vue'
-// import FormItem from './FormItem.vue'
+import FormItem from './FormItem.vue'
 import Selection from './Selection.vue'
 import TextInput from './TextInput.vue'
 import ColorPicker from './ColorPicker.vue'
@@ -64,6 +64,7 @@ export const components = {
   Switch,
   SingleTypeArrayWrapper,
   Constant,
+  FormItem,
 }
 
 export {
@@ -79,4 +80,5 @@ export {
   Switch,
   SingleTypeArrayWrapper,
   Constant,
+  FormItem,
 }
