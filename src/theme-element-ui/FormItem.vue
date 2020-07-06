@@ -1,5 +1,10 @@
 <template>
-  <el-form-item :label="label" :error="errorMessage" :required="required">
+  <el-form-item
+    v-bind="$attrs"
+    :label="label"
+    :error="errorMessage"
+    :required="required"
+  >
     <slot />
   </el-form-item>
 </template>
