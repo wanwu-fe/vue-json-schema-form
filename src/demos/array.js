@@ -1,5 +1,5 @@
 module.exports = {
-  name: '数组',
+  name: 'Array',
   schema: {
     type: 'object',
     properties: {

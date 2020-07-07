@@ -1,7 +1,8 @@
 module.exports = {
-  name: '复杂',
+  name: 'Complex Demo',
   schema: {
     type: 'object',
+    propertiesOrder: ['name', 'age', 'fimaly', 'pets', 'petName'],
     properties: {
       name: {
         type: 'string',

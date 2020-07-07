@@ -1,9 +1,9 @@
 module.exports = {
-  name: '字符串',
+  name: 'String',
   schema: {
     type: 'object',
     vjsf: {
-      title: '字符串用例',
+      title: 'string demo',
     },
     default: {
       simple: '123',

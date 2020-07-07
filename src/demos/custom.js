@@ -1,5 +1,5 @@
 export default {
-  name: '自定义',
+  name: 'Custom Component',
   schema: {
     type: 'object',
     properties: {

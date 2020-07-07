@@ -118,6 +118,11 @@ const uiSchema = {
 <json-schema-form @youEventName="yourHandler" />
 ```
 
+### propertiesOrder
+
+对象 key 的排序，尤其在有`dependencies`的时候非常有用，在声明 schema 的时候，在`type`为`object`的 schema 中可以增加`propertiesOrder`属性，
+他的值是一个数组，`properties`里面的变量会根据这里声明的顺序进行渲染，没有出现在这个数组里面的变量名则放在最后面
+
 # 插件
 
 插件能够帮助我们非常方便地扩展功能，目前支持情况如下：

@@ -132,6 +132,8 @@ html, body {
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
+  padding-top: 20px;
+  align-items: flex-end;
 }
 .demo {
   flex-shrink: 0;
