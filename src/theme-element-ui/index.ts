@@ -86,7 +86,7 @@ export {
   CommonBase,
 }
 
-export const FormItemPropsMixin = Vue.extend({
+export const FormItemPropsMixin = {
   computed: {
     formItemProps(): any {
       return {
@@ -100,4 +100,4 @@ export const FormItemPropsMixin = Vue.extend({
       }
     },
   },
-})
+}
