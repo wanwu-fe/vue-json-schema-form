@@ -66,25 +66,25 @@ class RendererBaseClass extends CommonBaseClass {
     return this.schema.format || 'text'
   }
 
-  get errorMessage() {
-    if (this.requiredError) return '必须填写'
-    // const errors = this.form.errors.filter(
-    //   (e: any) => e.dataPath === (this as any).path
-    // )
-    // return error ? error.message : ''
-    // return this.errors[0] ? this.errors[0].message : ''
-    return this.firstMatchedError ? this.firstMatchedError.message : ''
-  }
+  // get errorMessage() {
+  //   if (this.requiredError) return '必须填写'
+  //   // const errors = this.form.errors.filter(
+  //   //   (e: any) => e.dataPath === (this as any).path
+  //   // )
+  //   // return error ? error.message : ''
+  //   // return this.errors[0] ? this.errors[0].message : ''
+  //   return this.firstMatchedError ? this.firstMatchedError.message : ''
+  // }
 
-  get firstMatchedError() {
-    return this.errors.find((e: any) => {
-      const schemaPath = e.schemaPath
-      if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
-        return false
-      }
-      return true
-    })
-  }
+  // get firstMatchedError() {
+  //   return this.errors.find((e: any) => {
+  //     const schemaPath = e.schemaPath
+  //     if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
+  //       return false
+  //     }
+  //     return true
+  //   })
+  // }
 
   get errors() {
     const errors = this.form.errors.filter(
@@ -105,22 +105,23 @@ class RendererBaseClass extends CommonBaseClass {
       requiredError: this.requiredError,
       description: this.description,
       vjsf: this.vjsf,
+      path: this.path,
       isDependenciesKey: this.isDependenciesKey,
       ...this.vjsf.additionProps,
     }
   }
 
-  get formItemProps() {
-    return {
-      required: this.required,
-      schema: this.schema,
-      firstMatchedError: this.firstMatchedError,
-      requiredError: this.requiredError,
-      errors: this.errors,
-      label: this.title,
-      description: this.description,
-    }
-  }
+  // get formItemProps() {
+  //   return {
+  //     required: this.required,
+  //     schema: this.schema,
+  //     firstMatchedError: this.firstMatchedError,
+  //     requiredError: this.requiredError,
+  //     errors: this.errors,
+  //     label: this.title,
+  //     description: this.description,
+  //   }
+  // }
 
   get vjsf() {
     return getVJSFConfig(this.schema, this.uiSchema)

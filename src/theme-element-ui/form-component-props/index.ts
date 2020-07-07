@@ -18,6 +18,7 @@ export class CommonBase extends Vue {
   @Prop({ type: String }) description: any
   @Prop({ type: Object }) vjsf: any
   @Prop({ type: Boolean }) isDependenciesKey: any
+  @Prop({ type: String }) path: any
 
   defaultPlaceholder: string = '请输入'
 
@@ -31,11 +32,13 @@ export class CommonBase extends Vue {
 
   get firstMatchedError() {
     return this.errors.find((e: any) => {
-      const schemaPath = e.schemaPath
-      if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
+      // TODO: dataPath是否所有的key都是正确的
+      // TODO: 增加所有错误信息种类的test case
+      const dataPath = e.dataPath
+      if (this.isDependenciesKey && isDependenciesError(dataPath)) {
         return false
       }
-      return true
+      return dataPath === this.path
     })
   }
 
