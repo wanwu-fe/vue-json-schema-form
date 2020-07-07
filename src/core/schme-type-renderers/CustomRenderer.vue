@@ -22,6 +22,12 @@ export default class CustomRenderer extends RendererBaseClass {
     return this.config.component
   }
 
+  created() {
+    if (this.schema.default && this.value === undefined) {
+      this.handleChange(this.uiSchema.default)
+    }
+  }
+
   get config() {
     const c = this.schema[this.form.customRendererKey]
     if (c) {

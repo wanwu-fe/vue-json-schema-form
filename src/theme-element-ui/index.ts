@@ -19,6 +19,8 @@ import Alert from './Alert.vue'
 import SingleTypeArrayWrapper from './SingleTypeArrayWrapper.vue'
 import Constant from './Constant.vue'
 
+import { CommonBase } from './form-component-props'
+
 function getComponentName(component: any) {
   const options = component.options
   const name = options.name || component.name
@@ -81,4 +83,21 @@ export {
   SingleTypeArrayWrapper,
   Constant,
   FormItem,
+  CommonBase,
 }
+
+export const FormItemPropsMixin = Vue.extend({
+  computed: {
+    formItemProps(): any {
+      return {
+        required: (this as any).required,
+        schema: (this as any).schema,
+        firstMatchedError: (this as any).firstMatchedError,
+        requiredError: (this as any).requiredError,
+        errors: (this as any).errors,
+        label: (this as any).title,
+        description: (this as any).description,
+      }
+    },
+  },
+})

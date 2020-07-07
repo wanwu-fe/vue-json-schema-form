@@ -238,6 +238,7 @@ TODO:
   JsfDateTimePicker: '日期时间选择'
   JsfDateTimeRangePicker: '日期时间区间选择'
   JsfForm: '表单组件'
+  JsfFormItem: '表单项组件'
   JsfNumberInput: '数字输入'
   JsfSelection: '下拉选择'
   JsfSwitch: 'boolean开关'
@@ -249,6 +250,33 @@ TODO:
 ```
 
 你要实现一个主题则需要实现这些组件并逐一注册到`vue`
+
+### 使用默认主题
+
+vjsf 的默认主题现在打包在一起，需要通过：
+
+```js
+import JsonSchemaFormThemeElement from '@zdwh/vue-json-schema-form/dist/theme-element/index.common.js'
+import JsonSchemaFormThemeElement from '@zdwh/vue-json-schema-form/dist/theme-element/index.css'
+```
+
+来引入。
+
+在自定义组件的时候，你需要给你的表单组件套上`FormItem`来进行布局和错误显示：
+
+```js
+<FormItem v-bind="formItemProps">
+  <YourContent>
+</FormItem>
+
+import { FormItem, CommonBase } from '@zdwh/vue-json-schema-form/dist/theme-element/index.common.js'
+
+export default class YourComponent extends CommonBase
+```
+
+为了方便获取`formItemProps`，我们提供了`CommonBase`作为你的组件可继承的基类
+
+当然如果你只需要一个 mixin，你可以`import { FormItemPropsMixin } from '@zdwh/vue-json-schema-form/dist/theme-element/index.common.js'`
 
 ### 帮助方法
 
