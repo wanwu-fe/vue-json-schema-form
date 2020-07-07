@@ -19,17 +19,12 @@ module.exports = {
       },
       simple: {
         type: 'string',
-        minLength: 1,
+        minLength: 2,
         default: 'haha',
         vjsf: {
           placeholder: '请输入普通字符串',
           title: '普通字符串',
         },
-      },
-      image: {
-        type: 'string',
-        format: 'image',
-        title: '图片',
       },
       color: {
         type: 'string',
