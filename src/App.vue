@@ -20,7 +20,7 @@
           @test="handleCustomEvent"
         />
       </div>
-      <div>
+      <div style="text-align: center;">
         <el-button @click="validate">提 交</el-button>
         <el-button @click="clearErrors">清除错误</el-button>
         <el-button @click="reset">重置数据</el-button>

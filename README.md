@@ -1,6 +1,8 @@
 # @zdwh/vue-json-schema-form
 
-<p align="center">
+表单从来没有这么简单，通过一份 json-schema，你就拥有了一套交互完整，校验完善的表单。
+
+<p>
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/v/@zdwh/vue-json-schema-form.svg?sanitize=true" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/@zdwh/vue-json-schema-form.svg?sanitize=true" alt="License"></a>
 </p>

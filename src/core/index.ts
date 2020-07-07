@@ -34,6 +34,7 @@ class ThemeBaseClass extends Vue {
   @Prop({ type: Boolean }) requiredError: any
   @Prop({ type: String }) description: any
   @Prop({ type: Object }) vjsf: any
+  @Prop({ type: Boolean }) isDependenciesKey: any
 
   defaultPlaceholder: string = '请输入'
 
@@ -44,6 +45,31 @@ class ThemeBaseClass extends Vue {
   get additionProps() {
     return this.vjsf.additionProps || {}
   }
+
+  get firstMatchedError() {
+    return this.errors.find((e: any) => {
+      const schemaPath = e.schemaPath
+      if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
+        return false
+      }
+      return true
+    })
+  }
+  get formItemProps() {
+    return {
+      required: this.required,
+      schema: this.schema,
+      firstMatchedError: (this as any).firstMatchedError,
+      requiredError: this.requiredError,
+      errors: this.errors,
+      label: this.title,
+      description: this.description,
+    }
+  }
+}
+
+function isDependenciesError(schemaPath: string) {
+  return schemaPath.indexOf('/dependencies/') > 0
 }
 
 const ThemeBaseMixin = Vue.extend({
@@ -52,12 +78,13 @@ const ThemeBaseMixin = Vue.extend({
     onChange: Function,
     format: String,
     schema: Object,
-    errors: {},
+    errors: Array,
     title: String,
     required: Boolean,
     requiredError: Boolean,
     description: String,
     vjsf: Object,
+    isDependenciesKey: Boolean,
   },
 
   data() {
@@ -72,6 +99,26 @@ const ThemeBaseMixin = Vue.extend({
     },
     additionProps() {
       return (this.vjsf as any).additionProps || {}
+    },
+    firstMatchedError() {
+      return this.errors.find((e: any) => {
+        const schemaPath = e.schemaPath
+        if (this.isDependenciesKey && isDependenciesError(schemaPath)) {
+          return false
+        }
+        return true
+      })
+    },
+    formItemProps() {
+      return {
+        required: this.required,
+        schema: this.schema,
+        firstMatchedError: (this as any).firstMatchedError,
+        requiredError: this.requiredError,
+        errors: this.errors,
+        label: this.title,
+        description: this.description,
+      }
     },
   },
 })
