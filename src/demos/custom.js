@@ -6,6 +6,7 @@ export default {
       custom: {
         type: 'string',
         minLength: 5,
+        default: '123',
         /**
          * string: 组件
          * object: full config

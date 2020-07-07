@@ -24,7 +24,7 @@ export default class CustomRenderer extends RendererBaseClass {
 
   created() {
     if (this.schema.default && this.value === undefined) {
-      this.handleChange(this.uiSchema.default)
+      this.handleChange(this.schema.default)
     }
   }
 
