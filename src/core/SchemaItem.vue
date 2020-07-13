@@ -1,6 +1,9 @@
 <template>
   <!-- <component :is="customComponent" v-if="customComponent" v-bind="$props" @input="handleInput" /> -->
-  <component :is="componentType" v-bind="$props"></component>
+  <component
+    :is="componentType"
+    v-bind="{ ...$props, schema: transformedSchema }"
+  ></component>
 </template>
 
 <script lang="ts">
@@ -30,7 +33,8 @@ import { getVJSFConfig, getSchemaType } from './utils'
   },
 })
 export default class JsfItem extends CommonBaseClass {
-  @Inject('formContext') form: any
+  // @Inject('formContext') form: any
+  @Inject('transformSchema') readonly transformSchema: any
 
   get isConst() {
     return this.schema.const
@@ -52,6 +56,10 @@ export default class JsfItem extends CommonBaseClass {
     return this.isCustomComponent
       ? 'custom-renderer'
       : `${this.schemaType}-renderer`
+  }
+
+  get transformedSchema() {
+    return this.transformSchema(this.schema)
   }
 
   // 是否没有声明类型

@@ -1,5 +1,5 @@
 export default {
-  name: '自定义',
+  name: 'Custom Component',
   schema: {
     type: 'object',
     properties: {
@@ -25,6 +25,13 @@ export default {
         type: 'string',
         vjsf: {
           component: 'custom-input',
+        },
+      },
+      customKeyword: {
+        type: 'object',
+        test: true,
+        vjsf: {
+          title: '自定义关键字',
         },
       },
     },

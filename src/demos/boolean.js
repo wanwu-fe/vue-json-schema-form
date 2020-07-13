@@ -1,5 +1,5 @@
 export default {
-  name: '布尔值',
+  name: 'Boolean',
   schema: {
     type: 'object',
     properties: {

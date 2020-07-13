@@ -1,5 +1,5 @@
 module.exports = {
-  name: '数字',
+  name: 'Number',
   schema: {
     type: 'object',
     properties: {

@@ -218,24 +218,3 @@ export default class JsfObjectRenderer extends CommonBaseClass {
   // }
 }
 </script>
-
-<style>
-/* .object-title {
-  font-weight: 200;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #aaa;
-} */
-.object-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 200;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  background: #eee;
-  margin: 0;
-  padding: 0 15px;
-  height: 60px;
-  margin-bottom: 15px;
-}
-</style>

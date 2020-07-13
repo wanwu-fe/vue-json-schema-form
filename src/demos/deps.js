@@ -1,5 +1,5 @@
 export default {
-  name: '依赖关系',
+  name: 'Dependencies',
   schema: {
     type: 'object',
     propertiesOrder: ['selected', 'name1', 'name2', 'name3', 'others'],

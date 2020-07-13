@@ -1,5 +1,5 @@
 export default {
-  name: '日期时间',
+  name: 'Date Time',
   schema: {
     type: 'object',
     properties: {

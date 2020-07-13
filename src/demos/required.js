@@ -1,5 +1,5 @@
 export default {
-  name: 'required',
+  name: 'Required',
   schema: {
     type: 'object',
     properties: {

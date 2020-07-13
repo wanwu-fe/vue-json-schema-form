@@ -1,5 +1,5 @@
 export default {
-  name: '嵌套对象',
+  name: 'Nested Object',
   schema: {
     type: 'object',
     properties: {

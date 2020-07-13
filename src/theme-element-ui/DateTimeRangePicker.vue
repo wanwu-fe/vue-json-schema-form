@@ -1,7 +1,7 @@
 <template>
   <form-item v-bind="formItemProps">
     <date-picker
-      v-bind="{ type: this.type, ...$attrs }"
+      v-bind="{ type: this.type, ...$props, ...$attrs }"
       @input="handleChange"
       :start-placeholder="startPlaceholder"
       :end-placeholder="endPlaceholder"
@@ -10,12 +10,12 @@
     ></date-picker>
     <TimePicker
       v-else
+      v-bind="{ ...$props, ...$attrs, format: 'HH:mm:ss', ...additionProps }"
       :is-range="true"
       @input="handleChange"
       :start-placeholder="startPlaceholder"
       :end-placeholder="endPlaceholder"
       value-format="timestamp"
-      v-bind="{ ...$attrs, format: 'HH:mm:ss', ...additionProps }"
     ></TimePicker>
   </form-item>
 </template>

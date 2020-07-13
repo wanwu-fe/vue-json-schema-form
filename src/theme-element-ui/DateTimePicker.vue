@@ -1,7 +1,7 @@
 <template>
   <form-item v-bind="formItemProps">
     <date-picker
-      v-bind="{ ...$attrs }"
+      v-bind="{ ...$props, ...$attrs }"
       @input="handleChange"
       type="datetime"
       :schema="schema"
