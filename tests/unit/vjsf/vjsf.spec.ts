@@ -50,6 +50,7 @@ describe('custom component', () => {
         formContext: {
           errors: [],
         },
+        transformSchema: (s: any) => s,
       },
     })
     await wrapper.vm.$nextTick()

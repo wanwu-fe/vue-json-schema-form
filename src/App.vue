@@ -18,6 +18,7 @@
           ref="schemaForm"
           :form-props="formProps"
           @test="handleCustomEvent"
+          :plugins="plugins"
         />
       </div>
       <div style="text-align: center;">
@@ -44,7 +45,9 @@
 import { Button } from 'element-ui'
 import VueJsonPretty from 'vue-json-pretty'
 import demos from './demos'
-import { imagePlugin } from './plugins'
+// import { imagePlugin } from './plugins'
+
+import testPlugin from './custom-keyword'
 
 export default {
   name: 'App',
@@ -58,6 +61,7 @@ export default {
       value: {},
       demo: demos[0],
       uiSchema: undefined,
+      plugins: [testPlugin],
     }
   },
   computed: {

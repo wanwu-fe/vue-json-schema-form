@@ -128,7 +128,7 @@ const uiSchema = {
 插件能够帮助我们非常方便地扩展功能，目前支持情况如下：
 
 - [x] customFormat
-- [ ] customKeywords
+- [x] customKeywords
 
 ### 如何创建一个自定义 format 插件
 
@@ -225,6 +225,96 @@ const formats = {
 之后字符串类型的日期`format`就会使用`jsf-my-date-picker`作为表单组件
 
 **重要：该方式建议只对 json schema 默认支持的 format 使用，对于你自定义的 format，你仍然需要使用插件的方式，因为你需要制定该 format 的校验方式。**
+
+### 如何自定义关键字插件
+
+接口如下：
+
+```ts
+interface CustomKeyword {
+  name: string
+  definition: KeywordDefinition
+  transformSchema?: (originSchema: Schema) => Schema
+}
+```
+
+关于自定义 Ajv 关键字，请看[Ajv 文档](https://ajv.js.org/custom.html)，此处的`definition`就是这个作用，而`name`则是你的关键字的名字。
+
+自定义关键字和`customFormats`最大的区别是，我们不需要指定组件（毕竟我们不可能到每个类型里面判断关键字该怎么渲染）。
+在这里我们通过`transformSchema`来转换 schema，也就是我们真正渲染的 schema 是通过`transformSchema`转换的结果，
+这个方法会收到原始的 schema，你需要返回一个新的 schema，**注意：不要 originSchema 上做改动**
+
+表单渲染会根据你返回的新的 schema 来进行。
+
+##### 示例
+
+```ts
+const plugin: JsonSchemFormPlugin = {
+  customKeywords: [
+    {
+      name: 'test',
+      definition: {
+        // validate(schema: any, data: any) {
+        //   return typeof data === 'object' && data.x === 1
+        // },
+        macro(schema: any) {
+          return {
+            ...schema,
+            type: 'object',
+            properties: {
+              x: {
+                type: 'number',
+                minimum: 5,
+              },
+            },
+          }
+        },
+        errors: true,
+      },
+      transformSchema(schema: any) {
+        return {
+          ...schema,
+          type: 'object',
+          properties: {
+            x: {
+              type: 'number',
+              vjsf: {
+                title: '测试数字',
+              },
+            },
+          },
+        }
+      },
+    },
+  ],
+}
+```
+
+在使用关键字的时候，我们只需要：
+
+```js
+const schema = {
+  test: true,
+}
+```
+
+实际等于的效果如下：
+
+```js
+const schema = {
+  type: 'object',
+  properties: {
+    x: {
+      type: 'number',
+      vjsf: {
+        title: '测试数字',
+      },
+    },
+  },
+}
+```
+
+我们建议通过`macro`来声明该关键字的校验，因为这能够完全契合 vjsf 的错误显示。如果你通过`validation`来进行校验，最终校验结果只针对于当前路径，而并不会有针对 transform 之后的 schema 的校验，可能就需要你自行显示错误信息了。
 
 # 校验
 

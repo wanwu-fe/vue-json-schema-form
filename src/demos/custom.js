@@ -27,6 +27,13 @@ export default {
           component: 'custom-input',
         },
       },
+      customKeyword: {
+        type: 'object',
+        test: true,
+        vjsf: {
+          title: '自定义关键字',
+        },
+      },
     },
   },
 }

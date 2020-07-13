@@ -233,22 +233,3 @@ export default class JsfArrayRenderer extends RendererBaseClass {
   }
 }
 </script>
-
-<style scoped>
-.common-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-.array-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 200;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  background: #eee;
-  margin: 0;
-  padding: 0 15px;
-  height: 60px;
-}
-</style>

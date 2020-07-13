@@ -26,6 +26,7 @@ import {
   stringFormatComponentMap,
   numberFormatComponentMap,
 } from './format-component-map'
+import { Schema, isObject } from './utils'
 
 @Component({
   name: 'JsonSchemaForm',
@@ -66,6 +67,7 @@ export default class JsonSchemaForm extends Vue {
     return this.formProps || {}
   }
   get transformedPluginsOptions() {
+    // debugger
     const ajvOptions: CreateInstanceOptions = {
       formats: [],
       keywords: [],
@@ -92,29 +94,54 @@ export default class JsonSchemaForm extends Vue {
       }
     }
 
+    const keywordTransforms: Record<string, any> = {}
+
     const plugins = Array.isArray(this.plugins) ? this.plugins : [this.plugins]
 
     this.plugins.forEach((plugin: JsonSchemFormPlugin) => {
-      const { customFormats } = plugin
-      customFormats.forEach(({ name, definition, component }) => {
-        const type: string =
-          typeof definition === 'object'
-            ? (definition as any).type || 'string'
-            : 'string'
-        if (component) {
-          formatMaps[type][name] = component
-        }
-        const formats: any = ajvOptions.formats || []
-        formats.push({
-          name,
-          definition,
+      const { customFormats, customKeywords } = plugin
+      if (customFormats && Array.isArray(customFormats)) {
+        customFormats.forEach(({ name, definition, component }) => {
+          const type: string =
+            typeof definition === 'object'
+              ? (definition as any).type || 'string'
+              : 'string'
+          if (component) {
+            formatMaps[type][name] = component
+          }
+          const formats: any = ajvOptions.formats || []
+          formats.push({
+            name,
+            definition,
+          })
         })
-      })
+      }
+
+      if (customKeywords && Array.isArray(customKeywords)) {
+        customKeywords.forEach(({ name, definition, transformSchema }) => {
+          const keywords: any = ajvOptions.keywords || []
+
+          keywords.push({
+            name,
+            definition,
+          })
+
+          if (transformSchema && typeof transformSchema === 'function') {
+            if (keywordTransforms[name]) {
+              console.warn(
+                `keyword ${name} already registered, please conside change to another keyword`
+              )
+            }
+            keywordTransforms[name] = transformSchema
+          }
+        })
+      }
     })
 
     return {
       ajvOptions,
       formatMaps,
+      keywordTransforms,
     }
   }
 
@@ -140,6 +167,20 @@ export default class JsonSchemaForm extends Vue {
   }
   @Provide('fireEvent') fireEvent(event: string, data: any) {
     this.$emit(event, data)
+  }
+  @Provide('transformSchema') transformSchema(schema: Schema) {
+    if (!isObject(schema)) {
+      return schema
+    }
+    let transformedSchema: Schema = schema
+    Object.keys(schema).forEach((k: string) => {
+      if (this.transformedPluginsOptions.keywordTransforms[k]) {
+        transformedSchema = this.transformedPluginsOptions.keywordTransforms[k](
+          transformedSchema
+        )
+      }
+    })
+    return transformedSchema
   }
 
   @Watch('value')
