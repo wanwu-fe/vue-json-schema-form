@@ -212,14 +212,18 @@ export default class JsfArrayRenderer extends RendererBaseClass {
     }
   }
   handleValueChange(index: number, v: any) {
-    if (v !== undefined && this.currentValue === undefined) {
-      this.currentValue = [v]
+    // if (v !== undefined && this.currentValue === undefined) {
+    //   this.currentValue = [v]
+    // }
+    // if (this.currentValue && Array.isArray(this.currentValue)) {
+    //   this.$set(this.currentValue, index, v)
+    // } else {
+    //   this.currentValue = [v]
+    // }
+    if (this.currentValue === undefined || !Array.isArray(this.currentValue)) {
+      this.currentValue = []
     }
-    if (this.currentValue && Array.isArray(this.currentValue)) {
-      this.$set(this.currentValue, index, v)
-    } else {
-      this.currentValue = [v]
-    }
+    this.$set(this.currentValue, index, v)
     this.fireOnChange()
     // this.currentValue[index] = v
   }

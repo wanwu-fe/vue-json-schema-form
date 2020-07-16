@@ -19,6 +19,7 @@
           :form-props="formProps"
           @test="handleCustomEvent"
           :plugins="plugins"
+          :ajvInstanceOptions="{ removeAdditional: 'all' }"
         />
       </div>
       <div style="text-align: center;">

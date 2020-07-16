@@ -43,6 +43,7 @@ export default class JsonSchemaForm extends Vue {
   @Prop({ default: 'zh' }) readonly locale: any
   @Prop() readonly uiSchema: any
   @Prop() formatMaps: any
+  @Prop({ type: Object }) ajvInstanceOptions: any
   form: any = {}
   validator: any = null
   // inject: any =
@@ -69,6 +70,7 @@ export default class JsonSchemaForm extends Vue {
   get transformedPluginsOptions() {
     // debugger
     const ajvOptions: CreateInstanceOptions = {
+      options: this.ajvInstanceOptions || {},
       formats: [],
       keywords: [],
     }
