@@ -55,6 +55,10 @@ json schema 对象
 
 默认`zh`中文，支持值参考[`ajv-i18n`](https://github.com/epoberezkin/ajv-i18n)
 
+### ajvInstanceOptions
+
+参考[ajv options](https://github.com/ajv-validator/ajv#options)
+
 # vjsf
 
 `vjsf`是我们用来在 json schema 基础上帮助我们更好得渲染表单的工具参数，我们可以通过在每个 schema 节点上带上来传递：
