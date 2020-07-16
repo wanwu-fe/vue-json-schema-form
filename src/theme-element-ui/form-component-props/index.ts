@@ -31,6 +31,7 @@ export class CommonBase extends Vue {
   }
 
   get firstMatchedError() {
+    //TODO: errors没有默认值，prop中无此参数会报错
     return this.errors.find((e: any) => {
       // TODO: dataPath是否所有的key都是正确的
       // TODO: 增加所有错误信息种类的test case
