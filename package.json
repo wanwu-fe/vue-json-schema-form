@@ -16,7 +16,7 @@
   },
   "main": "dist/index.common.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "license": "MIT",
   "files": [
