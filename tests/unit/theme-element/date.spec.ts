@@ -31,7 +31,6 @@ describe('date', () => {
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
     elPicker.vm.$emit('input', '123')
-    await wrapper.vm.$nextTick()
     expect(wrapper.vm.value).toBe('123')
   })
   //TODO: <ElDatePicker> at packages/date-picker/src/picker.vue
@@ -50,7 +49,7 @@ describe('date', () => {
   //   const picker = wrapper.find({ name: 'JsfDatePicker' })
   //   expect(picker.vm.value).toBeUndefined()
   // })
-  it('set string value', async () => {
+  it('value should be the same as value', async () => {
     const date = '2020-07-15'
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -62,10 +61,9 @@ describe('date', () => {
       }),
     })
     const picker = wrapper.find({ name: 'JsfDatePicker' })
-    await wrapper.vm.$nextTick()
     expect(picker.vm.value).toBe(date)
   })
-  it('string default', async () => {
+  it('value should be the same as default', async () => {
     const date = '2020-07-15'
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -97,7 +95,7 @@ describe('date', () => {
   // })
 
   // number
-  it('set value when type of date is number', async () => {
+  it('the value should update as set when type of date is number', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -110,10 +108,9 @@ describe('date', () => {
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
     elPicker.vm.$emit('input', time)
-    await wrapper.vm.$nextTick()
     expect(wrapper.vm.value).toBe(time)
   })
-  it('type of date is number', async () => {
+  it('the value should be the same as value when type of date is number', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({

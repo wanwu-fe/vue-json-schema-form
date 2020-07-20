@@ -19,7 +19,7 @@ describe('datetime', () => {
     expect(picker.vm).not.toBeUndefined()
   })
 
-  it('date-time default string', async () => {
+  it('el value should be the same as default when type of date-time is string', async () => {
     const datetime = '2020-07-17 10:20:30'
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -36,7 +36,7 @@ describe('datetime', () => {
     expect(elPicker.vm.value).toBe(datetime)
   })
 
-  it('date-time set value', async () => {
+  it('el value should be the same as value when type of date-time is string', async () => {
     const datetime = '2020-07-17 10:20:30'
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -48,11 +48,10 @@ describe('datetime', () => {
       }),
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
-    await wrapper.vm.$nextTick()
     expect(elPicker.vm.value).toBe(datetime)
   })
 
-  it('date-time value change', async () => {
+  it('value should update as el change when type of date-time is string', async () => {
     const datetime = '2020-07-17 10:20:30'
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -65,11 +64,10 @@ describe('datetime', () => {
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
     elPicker.vm.$emit('input', datetime)
-    await wrapper.vm.$nextTick()
     expect(wrapper.vm.value).toBe('2020-07-17T02:20:30.000Z')
   })
 
-  it('type of datetime is number', async () => {
+  it('el value should be the same as value when type of datetime is number', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -83,7 +81,7 @@ describe('datetime', () => {
     const picker = wrapper.find({ name: 'ElDatePicker' })
     expect(picker.vm.value).toBe(time)
   })
-  it('set value when type of datetime is number', async () => {
+  it('value should update as el change when type of datetime is number', async () => {
     const time = new Date('2020-07-15 10:20:30').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -96,7 +94,6 @@ describe('datetime', () => {
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
     elPicker.vm.$emit('input', time)
-    await wrapper.vm.$nextTick()
     expect(wrapper.vm.value).toBe(time)
   })
 })
