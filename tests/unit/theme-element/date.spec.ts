@@ -95,7 +95,7 @@ describe('date', () => {
   // })
 
   // number
-  it('when the format of date is number, value should update when el-date-picker change input', async () => {
+  it('format of date is number, value should update when el-date-picker change input', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -110,7 +110,7 @@ describe('date', () => {
     elPicker.vm.$emit('input', time)
     expect(wrapper.vm.value).toBe(time)
   })
-  it('when the format of date is number, value should be the same as value', async () => {
+  it('format of date is number, value should be the same as value', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({
