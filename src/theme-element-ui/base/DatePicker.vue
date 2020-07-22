@@ -32,7 +32,6 @@ function parsedDateTime(arg: any) {
 })
 export default class BaseDatePicker extends DatePickerBase {
   handleChange(v: any) {
-    console.log(v, '------------------>')
     this.$emit(
       'input',
       !this.isNumber && this.isDateTime ? parsedDateTime(v) : v
