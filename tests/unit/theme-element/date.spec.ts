@@ -19,7 +19,7 @@ describe('date', () => {
     expect(picker.vm).not.toBeUndefined()
   })
 
-  it('value should update when el-date-picker fire input event', async () => {
+  it('value should update when el-date-picker emit input event', async () => {
     const wrapper: any = mount(Wrapper, {
       data: () => ({
         schema: {
@@ -95,7 +95,7 @@ describe('date', () => {
   // })
 
   // number
-  it('format of date is number, value should update when el-date-picker change input', async () => {
+  it('format of date is number, value should update when el-date-picker emit input event', async () => {
     const time = new Date('2020-07-15 10:10:10').getTime()
     const wrapper: any = mount(Wrapper, {
       data: () => ({

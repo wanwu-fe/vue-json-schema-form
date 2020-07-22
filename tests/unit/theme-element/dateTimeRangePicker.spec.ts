@@ -61,7 +61,7 @@ describe('dateTimeRange', () => {
     await wrapper.vm.$nextTick()
     expect(picker.vm.value).toBe(date)
   })
-  it('items format `date` is string, value should update when the el change input', () => {
+  it('items format `date` is string, value should update when el emit input event', () => {
     const date = ['2020-07-17', '2020-07-18']
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -125,7 +125,7 @@ describe('dateTimeRange', () => {
     await wrapper.vm.$nextTick()
     expect(picker.vm.value).toBe(date)
   })
-  it('items format `date` is number, value should update when the el change input', () => {
+  it('items format `date` is number, value should update when el emit input event', () => {
     const date = [
       new Date('2020-07-17').getTime(),
       new Date('2020-07-18').getTime(),
@@ -186,7 +186,7 @@ describe('dateTimeRange', () => {
     await wrapper.vm.$nextTick()
     expect(picker.vm.value).toBe(date)
   })
-  it('items format `date-time` is string, value should update when the el change input', () => {
+  it('items format `date-time` is string, value should update when el emit input event', () => {
     const date = ['2020-07-17 10:20:30', '2020-07-18 10:20:30']
     const wrapper: any = mount(Wrapper, {
       data: () => ({
@@ -250,7 +250,7 @@ describe('dateTimeRange', () => {
     await wrapper.vm.$nextTick()
     expect(picker.vm.value).toBe(date)
   })
-  it('items format `date-time` is number, value should update when the el change input', () => {
+  it('items format `date-time` is number, value should update when el emit input event', () => {
     const date = [
       new Date('2020-07-17 10:20:30').getTime(),
       new Date('2020-07-18 10:20:30').getTime(),
