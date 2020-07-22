@@ -15,6 +15,9 @@
     "pub": "npm run lint && npm run build && npm version patch && npm publish --access=public"
   },
   "main": "dist/index.common.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "license": "MIT",
   "files": [
     "dist"
