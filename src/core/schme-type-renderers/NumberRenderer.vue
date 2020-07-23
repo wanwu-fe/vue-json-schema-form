@@ -21,9 +21,7 @@ import { RendererBaseClass, errorMessage, selectMixin } from '../mixins'
   mixins: [selectMixin],
 })
 export default class JsfNumberRenderer extends RendererBaseClass {
-  currentValue = null
   created() {
-    // TODO: 创建时我们认为 *空字符串也需要被赋予默认值*
     if (typeof this.schema.default === 'number' && this.value === undefined) {
       // console.log('change number to default', this.schema.default)
       this.handleChange(this.schema.default)
@@ -43,9 +41,7 @@ export default class JsfNumberRenderer extends RendererBaseClass {
   }
 
   handleChange(v: any) {
-    this.currentValue = v
-    // this.$emit('input', v)
-    this.onChange(v)
+    this.onChange(typeof v === 'number' ? v : undefined)
   }
 }
 </script>

@@ -23,10 +23,13 @@ import { RendererBaseClass } from '../mixins'
 @Component
 export default class JsfStringRenderer extends Mixins(RendererBaseClass) {
   created() {
-    // TODO: 创建时我们认为 *空字符串也需要被赋予默认值*
+    /**
+     * 我们应该承认，空字符串也是字符串，我们需要承认其类型
+     * 如果我们希望这个值不存在，我们就应该直接设置其为`undefined`
+     */
     if (
       this.schema.default &&
-      (this.value === undefined || this.value === '')
+      (this.value === undefined || typeof this.value !== 'string')
     ) {
       this.handleChange(this.schema.default)
     }
@@ -69,7 +72,8 @@ export default class JsfStringRenderer extends Mixins(RendererBaseClass) {
   handleChange(value: string | undefined) {
     // console.log(value)
     // this.$emit('input', value || undefined)
-    this.onChange(value || undefined)
+    //TODO: 考虑增加配置项目`emitUndefinedOnEmptyString`
+    this.onChange(typeof value === 'string' ? value : undefined)
   }
 }
 </script>
