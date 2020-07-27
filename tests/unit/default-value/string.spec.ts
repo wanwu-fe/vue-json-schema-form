@@ -36,7 +36,9 @@ describe('string renderer default values', () => {
       }),
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.vm.value).toMatch('text')
+
+    // empty string is string, so we treat it as value
+    expect(wrapper.vm.value).toMatch('')
   })
 
   it('should use `default` as default value when in object', async () => {
