@@ -328,6 +328,32 @@ TODO:
 
 - [ ] 输入时对每个表单项独立进行校验
 
+### 错误信息
+
+我们通过`ajv-errors`来提供错误信息的定制，在你的每一项 schema 里面你可以：
+
+```js
+const schema = {
+  type: 'string',
+  pattern: '/^abc$/',
+  errorMessage: {
+    pattern: '请填写正确的内容',
+  },
+}
+```
+
+如果你不写`errorMessage`，那么在用户输入的内容不匹配正则的时候，显示的错误信息是：_应当匹配模式 "/^abc&/"_，这对于非技术人员显然不够友好，在增加了`errorMessage`之后，对于关键字`pattern`的错误信息就会显示你指定的错误信息。
+
+**Note：你可以对每个关键字设定错误信息**
+
+```js
+errorMessage: {
+  pattern: '请填写正确的内容',
+  maxLength: '最长不超过xxx',
+  //...others
+}
+```
+
 # 主题
 
 主题就是一组规范命名的组件，这一组组件都注册到全局 vue 上之后，vjsf 渲染表单就会使用这些组件，组件列表：

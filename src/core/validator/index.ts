@@ -1,4 +1,5 @@
 import Ajv, { Options } from 'ajv'
+import ajvErrors from 'ajv-errors'
 
 import { CreateInstanceOptions, ConstantCreateInstanceOptions } from './types'
 import defaultOptions from './instance-default-options'
@@ -37,6 +38,7 @@ export function createInstance(opts: CreateInstanceOptions = {}) {
   const { options: instanceOptions, formats, keywords } = options
 
   const ajv = new Ajv(instanceOptions)
+  ajvErrors(ajv as any)
 
   formats.forEach(({ name, definition }) => ajv.addFormat(name, definition))
   keywords.forEach(({ name, definition }) => ajv.addKeyword(name, definition))

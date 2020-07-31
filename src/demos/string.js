@@ -21,6 +21,10 @@ module.exports = {
         type: 'string',
         minLength: 2,
         default: 'haha',
+        pattern: '/^abc&/',
+        errorMessage: {
+          pattern: '请填写正确的内容',
+        },
         vjsf: {
           placeholder: '请输入普通字符串',
           title: '普通字符串',
