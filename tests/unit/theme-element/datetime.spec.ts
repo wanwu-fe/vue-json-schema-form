@@ -64,7 +64,7 @@ describe('datetime', () => {
     })
     const elPicker = wrapper.find({ name: 'ElDatePicker' })
     elPicker.vm.$emit('input', datetime)
-    expect(wrapper.vm.value).toBe('2020-07-17T02:20:30.000Z')
+    expect(wrapper.vm.value).toBe(new Date(datetime).toJSON()) // github服务器的识趣跟我们不一样
   })
 
   it('format of date-time is number, el value should be the same as value', async () => {
