@@ -10,6 +10,7 @@
     "build": "npm run clean && npm run build:core && npm run build:theme",
     "clean": "rimraf dist",
     "test:unit": "vue-cli-service test:unit",
+    "test:coverage": "vue-cli-service test:unit --coverage",
     "test:unit:watch": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint",
     "pub": "npm run lint && npm run build && npm version patch && npm publish --access=public"
