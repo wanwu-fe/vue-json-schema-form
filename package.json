@@ -1,6 +1,6 @@
 {
   "name": "@zdwh/vue-json-schema-form",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
