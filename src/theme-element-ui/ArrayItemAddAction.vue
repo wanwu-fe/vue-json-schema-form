@@ -1,6 +1,6 @@
 <template>
   <div class="vjsf-array-add-action">
-    <a href="void:0" @click="handleClick">
+    <a href="javascript:void(0);" @click="handleClick">
       <i class="el-icon-plus"></i>
       <span> 添加{{ name }}</span>
     </a>

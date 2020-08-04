@@ -2,7 +2,7 @@
   <div>
     <a
       class="vjsf-array-action-item"
-      href="void:0"
+      href="javascript:void(0);"
       @click="handleClick('onDown')"
       :disabled="length - 1 <= index"
     >
@@ -10,21 +10,22 @@
     </a>
     <a
       class="vjsf-array-action-item"
-      href="void:0"
+      href="javascript:void(0);"
       @click="handleClick('onUp')"
       :disabled="index <= 0"
-      ><i class="el-icon-sort-up"></i
-    ></a>
+    >
+      <i class="el-icon-sort-up"></i>
+    </a>
     <a
       class="vjsf-array-action-item"
-      href="void:0"
+      href="javascript:void(0);"
       @click="handleClick('onDelete')"
     >
       <i class="el-icon-delete"></i>
     </a>
     <a
       class="vjsf-array-action-item"
-      href="void:0"
+      href="javascript:void(0);"
       @click="handleClick('onAdd')"
     >
       <i class="el-icon-plus"></i>
@@ -64,11 +65,12 @@ export default class JsfAlert extends Vue {
 </script>
 
 <style lang="stylus" scoped>
-.vjsf-array-action-item{
-  display inline-block
-  color inherit
+.vjsf-array-action-item {
+  display: inline-block;
+  color: inherit;
+
   & + & {
-    margin-left 10px
+    margin-left: 10px;
   }
 }
 </style>

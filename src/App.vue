@@ -6,8 +6,7 @@
         v-for="(name, index) in demoNames"
         :key="name"
         @click="() => chose(index)"
-        >{{ name }}</el-button
-      >
+      >{{ name }}</el-button>
     </div>
     <div class="demo">
       <div style="padding: 20px; width: 500px;">
@@ -23,9 +22,9 @@
         />
       </div>
       <div style="text-align: center;">
-        <el-button @click="validate">提 交</el-button>
-        <el-button @click="clearErrors">清除错误</el-button>
-        <el-button @click="reset">重置数据</el-button>
+        <el-button @click="validate">校 验/validate</el-button>
+        <el-button @click="clearErrors">清除错误/clear errors</el-button>
+        <el-button @click="reset">重置数据/reset</el-button>
       </div>
     </div>
     <div class="code">

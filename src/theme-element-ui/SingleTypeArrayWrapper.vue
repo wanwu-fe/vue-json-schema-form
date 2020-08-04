@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="vjsf-array-add-action">
-      <a href="void:0" @click="handleAddToLast">
+      <a href="javascript:void(0);" @click="handleAddToLast">
         <i class="el-icon-plus"></i>
         <span> 添加{{ title }}</span>
       </a>
