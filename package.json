@@ -13,7 +13,7 @@
     "test:coverage": "vue-cli-service test:unit --coverage",
     "test:unit:watch": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint",
-    "pub": "npm run lint && npm run build && npm version patch && npm publish --access=public"
+    "pub": "npm run build && npm version patch && npm publish --access=public"
   },
   "main": "dist/index.common.js",
   "publishConfig": {

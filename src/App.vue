@@ -6,7 +6,8 @@
         v-for="(name, index) in demoNames"
         :key="name"
         @click="() => chose(index)"
-      >{{ name }}</el-button>
+        >{{ name }}</el-button
+      >
     </div>
     <div class="demo">
       <div style="padding: 20px; width: 500px;">
