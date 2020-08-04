@@ -56,7 +56,7 @@
 
 <script lang="ts">
 import { Component, Watch } from 'vue-property-decorator'
-import clone from 'lodash.clonedeep'
+const clone = require('lodash.clonedeep')
 // import { getDefaultValueOfSchema } from '../utils'
 import { RendererBaseClass } from '../mixins'
 
@@ -90,7 +90,9 @@ export default class JsfArrayRenderer extends RendererBaseClass {
     if (!this.value || !Array.isArray(this.value)) {
       // this.$emit('input', this.schema.default || [])
       const defaultValue = this.isMultiType ? [] : undefined
-      this.handleChange(clone(this.schema.default) || defaultValue)
+      this.handleChange(
+        this.schema.default ? clone(this.schema.default) : defaultValue
+      )
     } else {
       this.currentValue = this.value
     }
