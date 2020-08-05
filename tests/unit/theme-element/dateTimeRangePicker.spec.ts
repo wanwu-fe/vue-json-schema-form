@@ -39,7 +39,7 @@ describe('dateTimeRange', () => {
       }),
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
-    expect(picker.vm.value).toEqual(date)
+    expect(picker.vm.value).toBe(date)
   })
   it('items format `date` is string, el value should be the same as default', async () => {
     const date = ['2020-07-17', '2020-07-18']
@@ -78,7 +78,7 @@ describe('dateTimeRange', () => {
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
     picker.vm.$emit('input', date)
-    expect(wrapper.vm.value).toEqual(date)
+    expect(wrapper.vm.value).toBe(date)
   })
 
   it('items format `date` is number, el value should be the same as value', () => {
@@ -100,7 +100,7 @@ describe('dateTimeRange', () => {
       }),
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
-    expect(picker.vm.value).toEqual(date)
+    expect(picker.vm.value).toBe(date)
   })
   it('items format `date` is number, el value should be the same as default', async () => {
     const date = [
@@ -145,7 +145,7 @@ describe('dateTimeRange', () => {
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
     picker.vm.$emit('input', date)
-    expect(wrapper.vm.value).toEqual(date)
+    expect(wrapper.vm.value).toBe(date)
   })
 
   it('items format `date-time` is string, el value should be the same as value', () => {
@@ -164,7 +164,7 @@ describe('dateTimeRange', () => {
       }),
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
-    expect(picker.vm.value).toEqual(date)
+    expect(picker.vm.value).toBe(date)
   })
   it('items format `date-time` is string, el value should be the same as default', async () => {
     const date = ['2020-07-17 10:20:30', '2020-07-18 10:20:30']
@@ -203,7 +203,7 @@ describe('dateTimeRange', () => {
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
     picker.vm.$emit('input', date)
-    expect(wrapper.vm.value).toEqual(date)
+    expect(wrapper.vm.value).toBe(date)
   })
 
   it('items format `date-time` is number, el value should be the same as value', () => {
@@ -225,7 +225,7 @@ describe('dateTimeRange', () => {
       }),
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
-    expect(picker.vm.value).toEqual(date)
+    expect(picker.vm.value).toBe(date)
   })
   it('items format `date-time` is number, el value should be the same as default', async () => {
     const date = [
@@ -270,6 +270,6 @@ describe('dateTimeRange', () => {
     })
     const picker = wrapper.find({ name: 'JsfDateTimeRangePicker' })
     picker.vm.$emit('input', date)
-    expect(wrapper.vm.value).toEqual(date)
+    expect(wrapper.vm.value).toBe(date)
   })
 })
