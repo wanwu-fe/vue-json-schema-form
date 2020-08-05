@@ -182,7 +182,9 @@ export default class JsfArrayRenderer extends RendererBaseClass {
     const buf = this.currentValue[index - 1]
     this.currentValue[index - 1] = item
     this.currentValue[index] = buf
-    this.$forceUpdate()
+    // make array action wrapper force update
+    this.currentValue = [...this.currentValue]
+    // this.$forceUpdate()
     this.fireOnChange()
   }
   handleDown(item: any, index: number) {
@@ -191,7 +193,8 @@ export default class JsfArrayRenderer extends RendererBaseClass {
     const buf = this.currentValue[index + 1]
     this.currentValue[index + 1] = item
     this.currentValue[index] = buf
-    this.$forceUpdate()
+    this.currentValue = [...this.currentValue]
+    // this.$forceUpdate()
     this.fireOnChange()
   }
   handleAdd(item: any, index: number) {

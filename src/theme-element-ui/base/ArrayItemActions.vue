@@ -2,32 +2,22 @@
   <div>
     <a
       class="vjsf-array-action-item"
-      href="javascript:void(0);"
-      @click="handleClick('onDown')"
+      @click="handleClick('onDown', $event)"
       :disabled="length - 1 <= index"
     >
       <i class="el-icon-sort-down"></i>
     </a>
     <a
       class="vjsf-array-action-item"
-      href="javascript:void(0);"
-      @click="handleClick('onUp')"
+      @click="handleClick('onUp', $event)"
       :disabled="index <= 0"
     >
       <i class="el-icon-sort-up"></i>
     </a>
-    <a
-      class="vjsf-array-action-item"
-      href="javascript:void(0);"
-      @click="handleClick('onDelete')"
-    >
+    <a class="vjsf-array-action-item" @click="handleClick('onDelete', $event)">
       <i class="el-icon-delete"></i>
     </a>
-    <a
-      class="vjsf-array-action-item"
-      href="javascript:void(0);"
-      @click="handleClick('onAdd')"
-    >
+    <a class="vjsf-array-action-item" @click="handleClick('onAdd', $event)">
       <i class="el-icon-plus"></i>
     </a>
     <!-- <el-button @click="handleClick('onAdd')" icon="el-icon-d-caret"></el-button> -->
@@ -57,7 +47,8 @@ export default class JsfAlert extends Vue {
   @Prop({ required: true, type: Number }) length: any
   // @Prop({ required: true, type: Boolean }) show: any
 
-  handleClick(type: string) {
+  handleClick(type: string, e: any) {
+    e.preventDefault()
     const self: any = this
     self[type](this.item, this.index)
   }
@@ -68,6 +59,7 @@ export default class JsfAlert extends Vue {
 .vjsf-array-action-item {
   display: inline-block;
   color: inherit;
+  cursor pointer
 
   & + & {
     margin-left: 10px;
