@@ -8,17 +8,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component, Watch } from 'vue-property-decorator'
+  import Vue from 'vue'
+  import { Component, Watch } from 'vue-property-decorator'
 
-@Component
-export default class Wrapper extends Vue {
-  value = ''
-  schema = {}
-  uiSchema = undefined
+  @Component
+  export default class Wrapper extends Vue {
+    value = ''
+    schema = {}
+    uiSchema = undefined
 
-  handleChange(v: any) {
-    this.value = v
+    handleChange(v: any) {
+      this.value = v
+    }
   }
-}
 </script>

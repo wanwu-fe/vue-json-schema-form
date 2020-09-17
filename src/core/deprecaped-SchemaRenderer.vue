@@ -9,27 +9,27 @@
 </template>
 
 <script>
-import SchemaItem from './SchemaItem'
+  import SchemaItem from './SchemaItem'
 
-import { commonProps } from './mixins'
+  import { commonProps } from './mixins'
 
-// import { getDefaultValueOfSchema } from './utils'
+  // import { getDefaultValueOfSchema } from './utils'
 
-export default {
-  name: 'JsfSchemaRenderer',
-  mixins: [commonProps],
-  components: {
-    SchemaItem,
-  },
-  props: {
-    path: {
-      required: false,
+  export default {
+    name: 'JsfSchemaRenderer',
+    mixins: [commonProps],
+    components: {
+      SchemaItem,
     },
-  },
-  methods: {
-    handleChange(v) {
-      this.$emit('input', v)
+    props: {
+      path: {
+        required: false,
+      },
     },
-  },
-}
+    methods: {
+      handleChange(v) {
+        this.$emit('input', v)
+      },
+    },
+  }
 </script>

@@ -11,22 +11,22 @@
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator'
-import { Switch as ElSwitch } from 'element-ui'
+  import { Component } from 'vue-property-decorator'
+  import { Switch as ElSwitch } from 'element-ui'
 
-import { SwitchBase } from './form-component-props'
-import FormItem from './FormItem.vue'
+  import { SwitchBase } from './form-component-props'
+  import FormItem from './FormItem.vue'
 
-@Component({
-  name: 'JsfSwitch',
-  components: {
-    ElSwitch,
-    FormItem,
-  },
-})
-export default class JsfSwitch extends SwitchBase {
-  handleChange(v: any) {
-    this.$emit('input', v)
+  @Component({
+    name: 'JsfSwitch',
+    components: {
+      ElSwitch,
+      FormItem,
+    },
+  })
+  export default class JsfSwitch extends SwitchBase {
+    handleChange(v: any) {
+      this.$emit('input', v)
+    }
   }
-}
 </script>

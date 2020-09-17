@@ -20,23 +20,23 @@
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator'
-import { Select as ElSelect, Option as ElOption } from 'element-ui'
+  import { Component } from 'vue-property-decorator'
+  import { Select as ElSelect, Option as ElOption } from 'element-ui'
 
-import { SelectionBase } from './form-component-props'
-import FormItem from './FormItem.vue'
+  import { SelectionBase } from './form-component-props'
+  import FormItem from './FormItem.vue'
 
-@Component({
-  name: 'JsfSelection',
-  components: {
-    ElSelect,
-    ElOption,
-    FormItem,
-  },
-})
-export default class JsfSelection extends SelectionBase {
-  handleChange(v: any) {
-    this.$emit('input', v)
+  @Component({
+    name: 'JsfSelection',
+    components: {
+      ElSelect,
+      ElOption,
+      FormItem,
+    },
+  })
+  export default class JsfSelection extends SelectionBase {
+    handleChange(v: any) {
+      this.$emit('input', v)
+    }
   }
-}
 </script>

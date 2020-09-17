@@ -34,104 +34,104 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
-import { Button as ElButton, ButtonGroup } from 'element-ui'
+  import Vue from 'vue'
+  import { Component, Prop } from 'vue-property-decorator'
+  import { Button as ElButton, ButtonGroup } from 'element-ui'
 
-import ArrayItemActions from './base/ArrayItemActions.vue'
+  import ArrayItemActions from './base/ArrayItemActions.vue'
 
-@Component({
-  name: 'JsfSingleTypeArrayWrapper',
-  components: {
-    ElButton,
-    ArrayItemActions,
-  },
-})
-export default class JsfAlert extends Vue {
-  @Prop({ required: true, type: Array }) list: any
-  @Prop({ required: true, type: String }) title: any
+  @Component({
+    name: 'JsfSingleTypeArrayWrapper',
+    components: {
+      ElButton,
+      ArrayItemActions,
+    },
+  })
+  export default class JsfAlert extends Vue {
+    @Prop({ required: true, type: Array }) list: any
+    @Prop({ required: true, type: String }) title: any
 
-  @Prop({ required: true, type: Function }) onDelete: any
-  @Prop({ required: true, type: Function }) onAdd: any
-  @Prop({ required: true, type: Function }) onUp: any
-  @Prop({ required: true, type: Function }) onDown: any
+    @Prop({ required: true, type: Function }) onDelete: any
+    @Prop({ required: true, type: Function }) onAdd: any
+    @Prop({ required: true, type: Function }) onUp: any
+    @Prop({ required: true, type: Function }) onDown: any
 
-  handleAddToLast() {
-    this.onAdd(null, this.list.length - 1)
+    handleAddToLast() {
+      this.onAdd(null, this.list.length - 1)
+    }
   }
-}
 </script>
 
 <style lang="stylus">
-.vjsf-array-add-action{
-  & > a {
-    display block
-    height 40px
-    text-align center
-    line-height 40px
-    background-color #E6E6E6
-    color: #333
-    font-size 14px
-    text-decoration none
-  }
-}
-.vjsf-array-single-type-wrapper + .vjsf-array-single-type-wrapper {
-  margin-top: 20px;
-}
-.vjsf-array-item-header{
-  display: flex
-  align-items: center
-  justify-content space-between
-  background-color #999
-  padding 10px 25px
-  color #eee
-
-  & > span {
-    font-size 14px
-  }
-}
-.vjsf-array-item-content{
-  padding: 20px;
-  padding-bottom 0
-  border 1px solid #999
-  border-top-width: 0
-}
-
-.vjsf-array-item-content .vjsf-array-item-content {
-  border-width 0
-}
-
-.vjsf-array-single-type-wrapper .vjsf-array-single-type-wrapper {
-  border-width: 0
-  .vjsf-array-item-header {
-    background-color #E6E6E6
-    color #333
-    & > span {
+  .vjsf-array-add-action{
+    & > a {
+      display block
+      height 40px
+      text-align center
+      line-height 40px
+      background-color #E6E6E6
+      color: #333
       font-size 14px
-      color #333
+      text-decoration none
     }
   }
-  .vjsf-array-item-content {
-    background-color #F9F9F9
+  .vjsf-array-single-type-wrapper + .vjsf-array-single-type-wrapper {
+    margin-top: 20px;
   }
-}
+  .vjsf-array-item-header{
+    display: flex
+    align-items: center
+    justify-content space-between
+    background-color #999
+    padding 10px 25px
+    color #eee
 
-.vjsf-array-single-type-item + .vjsf-array-single-type-item{
-  margin-top 20px
-  clear both
-}
-
-.vjsf-array-add-action{
-  margin-top 20px
-  & > a {
-    display block
-    height 40px
-    text-align center
-    line-height 40px
-    background-color #E6E6E6
-    color: #333
-    font-size 14px
-    text-decoration none
+    & > span {
+      font-size 14px
+    }
   }
-}
+  .vjsf-array-item-content{
+    padding: 20px;
+    padding-bottom 0
+    border 1px solid #999
+    border-top-width: 0
+  }
+
+  .vjsf-array-item-content .vjsf-array-item-content {
+    border-width 0
+  }
+
+  .vjsf-array-single-type-wrapper .vjsf-array-single-type-wrapper {
+    border-width: 0
+    .vjsf-array-item-header {
+      background-color #E6E6E6
+      color #333
+      & > span {
+        font-size 14px
+        color #333
+      }
+    }
+    .vjsf-array-item-content {
+      background-color #F9F9F9
+    }
+  }
+
+  .vjsf-array-single-type-item + .vjsf-array-single-type-item{
+    margin-top 20px
+    clear both
+  }
+
+  .vjsf-array-add-action{
+    margin-top 20px
+    & > a {
+      display block
+      height 40px
+      text-align center
+      line-height 40px
+      background-color #E6E6E6
+      color: #333
+      font-size 14px
+      text-decoration none
+    }
+  }
 </style>

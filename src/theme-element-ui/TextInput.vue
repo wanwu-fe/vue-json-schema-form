@@ -11,37 +11,37 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'vue-property-decorator'
-import { Input as ElInput } from 'element-ui'
+  import { Component, Prop } from 'vue-property-decorator'
+  import { Input as ElInput } from 'element-ui'
 
-import { TextInputBase } from './form-component-props'
-import FormItem from './FormItem.vue'
+  import { TextInputBase } from './form-component-props'
+  import FormItem from './FormItem.vue'
 
-@Component({
-  name: 'JsfTextInput',
-  components: {
-    ElInput,
-    FormItem,
-  },
-})
-export default class JsfTextInput extends TextInputBase {
-  handleChange(v: any) {
-    this.$emit('input', v)
-  }
+  @Component({
+    name: 'JsfTextInput',
+    components: {
+      ElInput,
+      FormItem,
+    },
+  })
+  export default class JsfTextInput extends TextInputBase {
+    handleChange(v: any) {
+      this.$emit('input', v)
+    }
 
-  get type() {
-    const t = this.format
-    switch (t) {
-      case 'email': {
-        return t
-      }
-      default: {
-        const props = this.vjsf.additionProps
+    get type() {
+      const t = this.format
+      switch (t) {
+        case 'email': {
+          return t
+        }
+        default: {
+          const props = this.vjsf.additionProps
 
-        if (props && props.type) return props.type
-        return 'text'
+          if (props && props.type) return props.type
+          return 'text'
+        }
       }
     }
   }
-}
 </script>

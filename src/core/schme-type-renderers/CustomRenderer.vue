@@ -3,52 +3,52 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Component, Inject } from 'vue-property-decorator'
+  import Vue from 'vue'
+  import { Component, Inject } from 'vue-property-decorator'
 
-import FormItem from '../FormItem.vue'
+  import FormItem from '../FormItem.vue'
 
-import { RendererBaseClass } from '../mixins'
+  import { RendererBaseClass } from '../mixins'
 
-// const Base = Vue.extend({
-//   mixins: [commonProps],
-// })
+  // const Base = Vue.extend({
+  //   mixins: [commonProps],
+  // })
 
-@Component({
-  components: { FormItem },
-})
-export default class CustomRenderer extends RendererBaseClass {
-  get comp() {
-    return this.config.component
-  }
-
-  created() {
-    if (this.schema.default && this.value === undefined) {
-      this.handleChange(this.schema.default)
+  @Component({
+    components: { FormItem },
+  })
+  export default class CustomRenderer extends RendererBaseClass {
+    get comp() {
+      return this.config.component
     }
-  }
 
-  get config() {
-    const c = this.schema[this.form.customRendererKey]
-    if (c) {
-      if (typeof c === 'string') {
-        return {
-          component: c,
-          withFormItem: true,
-        }
+    created() {
+      if (this.schema.default && this.value === undefined) {
+        this.handleChange(this.schema.default)
       }
-      return c
     }
-    const vjsf = this.vjsf
-    return {
-      ...vjsf,
-      withFormItem: vjsf.withFormItem === false ? false : true,
-    }
-  }
 
-  handleChange(v: any) {
-    // TODO: 让空值变为undefined
-    this.onChange(v)
+    get config() {
+      const c = this.schema[this.form.customRendererKey]
+      if (c) {
+        if (typeof c === 'string') {
+          return {
+            component: c,
+            withFormItem: true,
+          }
+        }
+        return c
+      }
+      const vjsf = this.vjsf
+      return {
+        ...vjsf,
+        withFormItem: vjsf.withFormItem === false ? false : true,
+      }
+    }
+
+    handleChange(v: any) {
+      // TODO: 让空值变为undefined
+      this.onChange(v)
+    }
   }
-}
 </script>

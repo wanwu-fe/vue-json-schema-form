@@ -16,6 +16,9 @@ module.exports = {
         vjsf: {
           placeholder: '普通',
           title: '普通数字',
+          additionProps: {
+            min: 10,
+          },
         },
       },
       minMax: {

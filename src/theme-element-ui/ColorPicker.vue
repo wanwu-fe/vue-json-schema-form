@@ -4,27 +4,28 @@
       :value="value || ''"
       @input="handleChange"
       v-bind="additionProps"
+      show-alpha
     ></el-color-picker>
   </form-item>
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator'
-import { ColorPicker as ElColorPicker } from 'element-ui'
+  import { Component } from 'vue-property-decorator'
+  import { ColorPicker as ElColorPicker } from 'element-ui'
 
-import { ColorPickBase } from './form-component-props'
-import FormItem from './FormItem.vue'
+  import { ColorPickBase } from './form-component-props'
+  import FormItem from './FormItem.vue'
 
-@Component({
-  name: 'JsfColorPicker',
-  components: {
-    ElColorPicker,
-    FormItem,
-  },
-})
-export default class JsfColorPicker extends ColorPickBase {
-  handleChange(v: any) {
-    this.$emit('input', v)
+  @Component({
+    name: 'JsfColorPicker',
+    components: {
+      ElColorPicker,
+      FormItem,
+    },
+  })
+  export default class JsfColorPicker extends ColorPickBase {
+    handleChange(v: any) {
+      this.$emit('input', v)
+    }
   }
-}
 </script>
