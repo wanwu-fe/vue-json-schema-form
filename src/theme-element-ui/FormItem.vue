@@ -8,7 +8,7 @@
     <el-tooltip
       class="item"
       effect="dark"
-      content="Top Left 提示文字"
+      :content="description"
       placement="top"
       v-if="description"
     >
