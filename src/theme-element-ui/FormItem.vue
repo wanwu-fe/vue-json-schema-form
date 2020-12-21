@@ -5,13 +5,22 @@
     :error="errorMessage"
     :required="required"
   >
-    <slot />
+    <el-tooltip
+      class="item"
+      effect="dark"
+      content="Top Left 提示文字"
+      placement="top"
+      v-if="description"
+    >
+      <slot />
+    </el-tooltip>
+    <slot v-else />
   </el-form-item>
 </template>
 
 <script lang="ts">
   import { Component } from 'vue-property-decorator'
-  import { FormItem as ElFormItem } from 'element-ui'
+  import { FormItem as ElFormItem, Tooltip as ElTooltip } from 'element-ui'
 
   import { FormItemBase } from './form-component-props'
 
@@ -19,6 +28,7 @@
     name: 'JsfFormItem', // name是class名字
     components: {
       ElFormItem,
+      ElTooltip,
     },
   })
   export default class JsfFormItem extends FormItemBase {

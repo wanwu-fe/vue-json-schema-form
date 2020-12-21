@@ -15,12 +15,13 @@ enum SchemaTypes {
 
 export interface VueJsonSchemaConfig {
   title?: string
-  descrription?: string
+  description?: string
   component?: string
   additionProps?: {
     [key: string]: any
   }
   withFormItem?: boolean
+  disabled?: boolean
 }
 
 // type Schema = any

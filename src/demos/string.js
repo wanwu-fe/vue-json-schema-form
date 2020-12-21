@@ -15,6 +15,7 @@ module.exports = {
         const: 'jokcy',
         vjsf: {
           title: '固定值',
+          description: '123',
         },
       },
       simple: {

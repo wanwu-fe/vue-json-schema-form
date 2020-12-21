@@ -104,6 +104,7 @@ class RendererBaseClass extends CommonBaseClass {
       required: this.required,
       requiredError: this.requiredError,
       description: this.description,
+      disabled: !!this.vjsf.disabled,
       vjsf: this.vjsf,
       path: this.path,
       isDependenciesKey: this.isDependenciesKey,
@@ -142,7 +143,7 @@ class RendererBaseClass extends CommonBaseClass {
   }
 
   get description() {
-    return this.vjsf.descrription
+    return this.vjsf.description
   }
 }
 
